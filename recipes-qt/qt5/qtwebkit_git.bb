@@ -18,13 +18,6 @@ DEPENDS += "qtbase qtdeclarative icu ruby-native sqlite3 glib-2.0 libxslt gperf-
 ARM_INSTRUCTION_SET_armv4 = "arm"
 ARM_INSTRUCTION_SET_armv5 = "arm"
 
-# Patches from https://github.com/meta-qt5/qtwebkit/commits/b5.10
-# 5.10.meta-qt5.1
-SRC_URI += "\
-    file://0001-qtwebkit-fix-QA-issue-bad-RPATH.patch \
-    file://0002-Exclude-backtrace-API-for-non-glibc-libraries.patch \
-"
-
 PACKAGECONFIG ??= "gstreamer qtlocation qtmultimedia qtsensors qtwebchannel \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'libxcomposite libxrender', '', d)} \
     fontconfig \
@@ -87,6 +80,6 @@ PACKAGES_remove = "${PN}-examples-dev ${PN}-examples-staticdev ${PN}-examples-db
 RUBY_SYS = "${@ '${BUILD_SYS}'.replace('i486', 'i386').replace('i586', 'i386').replace('i686', 'i386') }"
 export RUBYLIB="${STAGING_DATADIR_NATIVE}/rubygems:${STAGING_LIBDIR_NATIVE}/ruby:${STAGING_LIBDIR_NATIVE}/ruby/${RUBY_SYS}"
 
-QT_MODULE_BRANCH = "5.9"
+QT_MODULE_BRANCH = "dev"
 
-SRCREV = "97c4a80a1282c8c3eaa343011286b76fd4838c5f"
+SRCREV = "beaeeb99881184fd368c121fcbb1a31c78b794a3"
