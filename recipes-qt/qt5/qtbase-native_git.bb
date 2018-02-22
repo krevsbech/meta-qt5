@@ -65,7 +65,6 @@ PACKAGECONFIG_CONFARGS = " \
     -no-accessibility \
     -no-cups \
     -no-gui \
-    -no-qml-debug \
     -no-sql-mysql \
     -no-sql-sqlite \
     -no-opengl \
